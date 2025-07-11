@@ -6,9 +6,8 @@
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden; /* Prevent scrollbars from appearing */
+      overflow: hidden;
     }
-    /* Custom scrollbar for WebKit browsers (Chrome, Safari, Edge) */
     ::-webkit-scrollbar {
       width: 12px;
     }
@@ -20,9 +19,8 @@
       border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #00e6e6; /* Slightly darker cyan on hover */
+      background: #00e6e6;
     }
-    /* Custom scrollbar for Firefox */
     html {
       scrollbar-width: thin;
       scrollbar-color: cyan black;
@@ -36,14 +34,14 @@
       justify-content: center;
       align-items: center;
       animation: gradientShift 10s ease-in-out infinite;
-      overflow: hidden; /* Ensure no overflow from background */
+      overflow: hidden;
     }
     .content {
       text-align: center;
       color: white;
-      padding: 10px; /* Small padding to avoid edge clipping */
-      box-sizing: border-box; /* Include padding in dimensions */
-      max-width: 100vw; /* Prevent horizontal overflow */
+      padding: 10px;
+      box-sizing: border-box;
+      max-width: 100vw;
     }
     h1 {
       font-family: Impact, sans-serif;
@@ -55,16 +53,16 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 5px black;
-      user-select: none; /* Disable text selection */
-      transform: rotate(5deg); /* Tilt upward on the right */
+      user-select: none;
+      transform: rotate(5deg);
     }
     .countdown {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 10px; /* Reduced margin to fit within viewport */
-      user-select: none; /* Disable text selection */
-      flex-wrap: wrap; /* Allow wrapping to prevent horizontal overflow */
+      margin-top: 10px;
+      user-select: none;
+      flex-wrap: wrap;
     }
     .time-unit {
       display: flex;
@@ -96,10 +94,10 @@
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 2px black;
       animation: pulse 2s ease-in-out infinite;
-      margin-top: 10px; /* Reduced margin to fit within viewport */
-      user-select: none; /* Disable text selection */
-      padding: 0 10px; /* Small padding to avoid edge clipping */
-      max-width: 90vw; /* Limit width to prevent overflow */
+      margin-top: 10px;
+      user-select: none;
+      padding: 0 10px;
+      max-width: 90vw;
       text-align: center;
     }
     @keyframes gradientShift {
@@ -159,20 +157,15 @@
     </div>
   </div>
   <script>
-    // Set this to false to disable the countdown
-    const CounterEnabled = false;
-
-    // Change these values to set a different countdown target
+    const CounterEnabled = true;
     const targetDateConfig = {
-      year: null,
-      month: null, // 1-12 (January is 1)
-      day: null,
-      hour: null,  // 0-23
-      minute: null,
-      second: null
+      year: 2025,
+      month: 8,
+      day: 22,
+      hour: 12,
+      minute: 0,
+      second: 0
     };
-
-    // Create target date from config (month is 0-based in JavaScript Date)
     const targetDate = new Date(
       targetDateConfig.year,
       targetDateConfig.month - 1,
@@ -181,9 +174,8 @@
       targetDateConfig.minute,
       targetDateConfig.second
     );
-
     if (CounterEnabled) {
-      setInterval(updateCountdown, 10); // Update every 10ms for millisecond precision
+      setInterval(updateCountdown, 10);
       updateCountdown();
     } else {
       document.getElementById('countdown').style.display = 'none';
@@ -195,7 +187,6 @@
       document.getElementById('seconds-number').textContent = 0;
       document.getElementById('milliseconds-number').textContent = 0;
     }
-
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
@@ -228,7 +219,6 @@
       document.getElementById('seconds-number').textContent = seconds;
       document.getElementById('milliseconds-number').textContent = milliseconds.toString().padStart(3, '0');
     }
-
     document.querySelector('.background').addEventListener('click', function(e) {
       const circle = document.createElement('div');
       circle.style.position = 'absolute';
