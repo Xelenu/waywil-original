@@ -124,10 +124,6 @@
       <h1>Wilway</h1>
       <div class="countdown" id="countdown">
         <div class="time-unit">
-          <span class="number" id="months-number">0</span>
-          <span class="label">Month</span>
-        </div>
-        <div class="time-unit">
           <span class="number" id="days-number">0</span>
           <span class="label">Days</span>
         </div>
@@ -168,7 +164,6 @@
     };
     const targetDate = new Date(
       targetDateConfig.year,
-      targetDateConfig.month - 1,
       targetDateConfig.day,
       targetDateConfig.hour,
       targetDateConfig.minute,
@@ -180,7 +175,6 @@
     } else {
       document.getElementById('countdown').style.display = 'none';
       document.getElementById('disabled-message').style.display = 'block';
-      document.getElementById('months-number').textContent = 0;
       document.getElementById('days-number').textContent = 0;
       document.getElementById('hours-number').textContent = 0;
       document.getElementById('minutes-number').textContent = 0;
@@ -193,7 +187,6 @@
       if (diff <= 0) {
         document.getElementById('countdown').style.display = 'none';
         document.getElementById('zero-message').style.display = 'block';
-        document.getElementById('months-number').textContent = 0;
         document.getElementById('days-number').textContent = 0;
         document.getElementById('hours-number').textContent = 0;
         document.getElementById('minutes-number').textContent = 0;
@@ -212,7 +205,6 @@
       const minutes = totalMinutes % 60;
       const seconds = totalSeconds % 60;
       const milliseconds = totalMilliseconds % 1000;
-      document.getElementById('months-number').textContent = months;
       document.getElementById('days-number').textContent = days;
       document.getElementById('hours-number').textContent = hours;
       document.getElementById('minutes-number').textContent = minutes;
