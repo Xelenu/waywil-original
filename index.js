@@ -44,7 +44,6 @@ const CounterEnabled = true;
       const totalMinutes = Math.floor(totalSeconds / 60);
       const totalHours = Math.floor(totalMinutes / 60);
       const totalDays = Math.floor(totalHours / 24);
-      const months = Math.floor(totalDays / 30);
       const days = totalDays % 30;
       const hours = totalHours % 24;
       const minutes = totalMinutes % 60;
